@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+//komentar
 @Service
 public class TopicService {
 	
@@ -37,6 +37,7 @@ public void updateTopic(String id, Topic topic) {
 
 	//PROC TOHLE NEFUNGUJE?
 //	int index = topics.indexOf(topics.stream().filter(t -> t.getId().equals(id)).findFirst().get());
+	// zkusit bez toho remove
 	//topics.remove(topics.stream().filter(t -> t.getId().equals(id)).findFirst().get());
 	//	topics.set(index, topic);
 	
