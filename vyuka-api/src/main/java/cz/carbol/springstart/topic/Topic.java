@@ -2,6 +2,7 @@ package cz.carbol.springstart.topic;
 
 public class Topic {
 	
+	//komentar bazantm
 	private String id;
 	private String name;
 	private String description;
