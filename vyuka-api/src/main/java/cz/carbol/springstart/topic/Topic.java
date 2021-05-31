@@ -1,8 +1,14 @@
 package cz.carbol.springstart.topic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Topic {
 	
 	//komentar
+	
+	@Id
 	private String id;
 	private String name;
 	private String description;
