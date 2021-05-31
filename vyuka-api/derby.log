@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Apr 30 17:31:35 CEST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0179-2368-168d-000005a8ead8 
+on database directory memory:C:\Spring\Git\Spring2021git\spring2021\vyuka-api\dd37e521-5c3f-470f-9d7d-741f450ac7ae with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/C:/Users/Jarda/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_281-b09
+user.dir=C:\Spring\Git\Spring2021git\spring2021\vyuka-api
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

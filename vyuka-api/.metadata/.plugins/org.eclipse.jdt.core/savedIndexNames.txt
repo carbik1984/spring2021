@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Spring\Git\Spring2021git\spring2021\vyuka-api\.metadata\.plugins\org.eclipse.jdt.core
+2413815617.index
+136910402.index
