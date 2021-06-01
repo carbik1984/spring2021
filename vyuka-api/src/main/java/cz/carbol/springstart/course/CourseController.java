@@ -1,5 +1,7 @@
 package cz.carbol.springstart.course;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,50 +13,34 @@ import cz.carbol.springstart.topic.Topic;
 
 @RestController
 public class CourseController { 
-	
-@Autowired
-private CourseService courseservice;
 
+	@Autowired
+	private CourseService courseService;
 
-@RequestMapping(value = "/courseList", method = RequestMethod.POST)
-void addCourse(@RequestBody Course course){
-	courseservice.addCourse(course);
-}
+	@RequestMapping(value = "/topics/{id}/courses")
+	public List<Course> getAllCourses(@PathVariable String id) {
+		return courseService.getAllCourses(id);
+	}
 
-@RequestMapping(value = "courseList/{id}", method = RequestMethod.GET)	 
-Course getCourseById(@PathVariable String id){
-	
-	return courseservice.getCourse(id);
+	@RequestMapping(value="/topics/{topicId}/courses/{id}", method = RequestMethod.GET)
+	Course getCourse(@PathVariable String id) {
+	return courseService.getCourse(id);
 
-}
+	}
 
-@RequestMapping(value = "/courseList", method = RequestMethod.PUT)
-void upadateCourse(@RequestBody Course course){
-	
-	courseservice.updateCourse(course);
-	
-}
+	@RequestMapping(value = "/topics/{topicId}/courses", method = RequestMethod.POST)
+	void addCourse(@RequestBody Course course, @PathVariable String topicId) {
 
-@RequestMapping(value = "courseList/{id}", method = RequestMethod.DELETE)
-void deleteCourse(@PathVariable String id){
-	
-	courseservice.deleteCourseById(id);
-	
-}
+		course.setTopic(new Topic(topicId, "", ""));
+		courseService.addCourse(course);
 
-@RequestMapping(value = "courseList/{id}", method = RequestMethod.POST)	 
-void addTopic(@PathVariable String id, @RequestBody Topic topic){ 
-	
-	courseservice.getCourse(id).adTopic(topic);
+	}
 
-}
+	@RequestMapping(value = "/topics/{topicId}/courses/{id}", method = RequestMethod.DELETE)
+	void deleteCourse(@PathVariable String id) {
 
-@RequestMapping(value = "courseList/{id}", method = RequestMethod.POST)	 
-void deleteTopic(@PathVariable String id, @RequestBody Topic topic){ 
-	
-	courseservice.getCourse(id).deleteTopic(topic);
+		courseService.deleteCourseById(id);
 
-}
-
+	}
 
 }

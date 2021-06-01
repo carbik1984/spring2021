@@ -1,6 +1,7 @@
 package cz.carbol.springstart.course;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,35 +10,35 @@ import org.springframework.stereotype.Service;
 public class CourseService {
 	
 	@Autowired
-	CourseRepository courserepository;
+	CourseRepository courseRepository;
 
 	void deleteCourseById(String id){
 		
-		courserepository.deleteById(id);
+		courseRepository.deleteById(id);
 	}
 	
 	void addCourse(Course course){
 		
-		courserepository.save(course);
+		courseRepository.save(course);
 		
 	}
 	
 	void updateCourse(Course course){
-		courserepository.save(course);
+		courseRepository.save(course);
 		
 	}
 	
 	Course getCourse(String id){
 		
-		return courserepository.findById(id).orElse(null);
+		return courseRepository.findById(id).orElse(null);
 		
 	}
 	
-	ArrayList<Course> getAllCourses(){
-		
-		ArrayList<Course> courseList = new ArrayList<>();
-	courserepository.findAll().forEach(courseList :: add);
-	return courseList;
+	List<Course> getAllCourses(String topicId){
+
+		List<Course> courses = new ArrayList<>();
+		courseRepository.findByTopicId(topicId).forEach(courses::add);
+		return courses;
 	}
 	
 

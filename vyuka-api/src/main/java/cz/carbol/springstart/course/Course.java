@@ -1,11 +1,8 @@
 package cz.carbol.springstart.course;
 
 import javax.persistence.Entity; 
-
-import java.util.ArrayList;
-
-
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import cz.carbol.springstart.topic.Topic;
 
@@ -16,19 +13,28 @@ public class Course {
 	private String id;
 	private String name;
 	private String description;
-	private ArrayList<Topic> topics;
+	//private ArrayList<Topic> topics;
 	
+	@ManyToOne
+	private Topic topic;
+	
+	//@ManyToOne - Jedno tema muze mit vice kurzu - databazovy pohled
+	//@OneToMany - Jeden kurz muze mit vice temat - databazovy pohled
+	
+	
+
 	public Course() { 
 		
 	}
 
-	public Course(String id, String name, String description){
+	public Course(String id, String name, String description, String topicId){
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		
-		topics = new ArrayList<>();
+		this.topic = new Topic(topicId, "", "");
+		
 		
 	}
 
@@ -56,21 +62,14 @@ public class Course {
 		this.description = description;
 	}
 
-	public ArrayList<Topic> getTopics() {
-		return topics;
+	public Topic getTopic() {
+		return topic;
 	}
 
-	void adTopic(Topic topic){
-		
-		this.topics.add(topic);
-		
+	public void setTopic(Topic topic) {
+		this.topic = topic;
 	}
-	
-void deleteTopic(Topic topic){
-		
-		this.topics.remove(topic);
-		
-	}
+
 	
 	
 }
