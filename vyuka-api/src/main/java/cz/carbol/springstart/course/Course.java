@@ -1,4 +1,4 @@
-package cz.carbol.springstart.topic;
+package cz.carbol.springstart.course;
 
 import javax.persistence.Entity; 
 
@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 
 import javax.persistence.Id;
+
+import cz.carbol.springstart.topic.Topic;
 
 @Entity
 public class Course {

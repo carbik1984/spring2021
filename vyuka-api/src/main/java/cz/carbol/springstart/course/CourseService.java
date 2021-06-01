@@ -1,4 +1,4 @@
-package cz.carbol.springstart.topic;
+package cz.carbol.springstart.course;
 
 import java.util.ArrayList;
 
